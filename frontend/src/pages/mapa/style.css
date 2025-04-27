@@ -1,0 +1,143 @@
+.container-telaMapa {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 150px;
+  min-height: 100vh;
+  background: linear-gradient(180deg, #0d0d0d, #371692);
+  font-family: 'Montserrat', sans-serif;
+}
+
+.mapa-tabela {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: row;
+  width: 100%;
+  margin: 30px auto;
+  gap: 30px; /* Adiciona um pequeno espaço entre o mapa e a tabela */
+}
+
+.logo-area-telaMapa {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 40px;
+}
+
+.logo-telaMapa {
+  width: 70px;
+  height: auto;
+}
+
+h1 {
+  font-size: 30px;
+  font-weight: bold;
+  color: #fff;
+}
+
+.titulo-container-telaMapa {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 30px;
+  justify-content: flex-start;
+  padding-left: 0;
+  margin-left: 0;
+}
+
+.titulo-texto-telaMapa {
+  font-size: 24px;
+  color: #fff;
+  font-weight: bold;
+  margin: 0;
+}
+
+.map-container-telaMapa {
+  width: 100%;
+  max-width: 800px; /* Aumentei a largura máxima */
+  height: 600px; /* Aumentei a altura */
+  margin: 30px auto;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
+}
+
+.leaflet-container {
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+}
+
+.voltar-telaMapa {
+  background-color: #bd9ceb;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  height: 45px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 30px;
+  padding: 0 20px;
+  transition: background-color 0.2s ease-in-out, transform 0.1s ease-in-out;
+}
+
+.tabela-container-telaMapa {
+  width: 100%;
+  max-width: 600px;
+  margin: 30px auto;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.1); /* Fundo transparente com leve opacidade */
+  border-radius: 15px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
+}
+
+.tabela-container-telaMapa h2 {
+  font-size: 24px;
+  color: #fff;
+  font-weight: bold;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  color: #fff; /* Texto em branco */
+}
+
+th, td {
+  padding: 12px 15px;
+  text-align: left;
+}
+
+th {
+  background-color: #371692; /* Cor de fundo das células de cabeçalho */
+  color: #fff; /* Texto branco */
+  font-weight: bold;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+td {
+  background-color: rgba(0, 0, 0, 0.2); /* Fundo de células com leve opacidade */
+  border-bottom: 1px solid #fff; /* Borda sutil entre as linhas */
+}
+
+td:last-child {
+  border-bottom: none;
+}
+
+tr:nth-child(even) td {
+  background-color: rgba(0, 0, 0, 0.3); /* Cor alternada nas linhas da tabela */
+}
+
+tr:hover td {
+  background-color: rgba(255, 255, 255, 0.2); /* Efeito hover nas linhas */
+  cursor: pointer;
+}
+
+tr:last-child td {
+  border-bottom: none; /* Remove a borda inferior da última linha */
+}

@@ -1,0 +1,133 @@
+.container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 150px;
+  min-height: 100vh;
+  background: linear-gradient(180deg, #0d0d0d, #371692);
+  font-family: 'Montserrat', sans-serif;
+}
+
+.logo-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.logo {
+  width: 80px;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+h1 {
+  font-size: 30px;
+  font-weight: bold;
+  color: #fff;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 30px;
+  border-radius: 20px;
+  width: 100%;
+  max-width: 400px;
+  background-color: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(10px);
+}
+
+label {
+  color: #fff;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+select,
+input {
+  border: none;
+  border-radius: 25px;
+  height: 40px;
+  font-size: 16px;
+  padding: 0 15px;
+  background-color: #ffffff12;
+  color: #fff;
+  transition: all 0.2s ease-in-out;
+}
+
+select option {
+  color: #000;
+}
+
+input::placeholder {
+  color: #e0d9f0;
+}
+
+input:focus,
+select:focus {
+  outline: 2px solid #bd9ceb;
+  background-color: #ffffff22;
+}
+
+button[type="submit"] {
+  border-radius: 25px;
+  background-color: #bd9ceb;
+  border: none;
+  height: 45px;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+  color: #fff;
+  transition: background-color 0.2s ease-in-out, transform 0.1s;
+}
+
+button[type="submit"]:hover {
+  background-color: #a37ee3;
+}
+
+button[type="submit"]:active {
+  transform: scale(0.98);
+}
+
+
+.back-to-linhas-button{
+  border: none;
+  background-color: transparent;
+  color: #fff;
+  font-size: 24px;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.2s ease-in-out;
+}
+
+
+.voltar-button {
+  background-color: #bd9ceb;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  height: 45px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 20px;
+  padding: 0 20px;
+  width: 15%;
+  transition: background-color 0.2s ease-in-out, transform 0.1s ease-in-out;
+}
+
+.voltar-button:hover {
+  background-color: #a37ee3;
+}
+
+.voltar-button:active {
+  transform: scale(0.98);
+}

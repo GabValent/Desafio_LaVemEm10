@@ -1,0 +1,111 @@
+.editar-perfil-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: linear-gradient(180deg, #0d0d0d, #371692);
+  font-family: 'Montserrat', sans-serif;
+  padding: 20px;
+}
+
+.logo-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.logo-area .logo {
+  width: 80px;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+h1 {
+  color: #ffffff;
+  font-size: 32px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.editar-perfil-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 100%;
+  max-width: 350px;
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.editar-perfil-form label {
+  font-size: 16px;
+  color: #333;
+}
+
+.editar-perfil-form input {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-size: 14px;
+  width: 100%;
+  margin-top: 5px;
+}
+
+.editar-perfil-form input:focus {
+  border-color: #6f42c1;
+  outline: none;
+}
+
+button[type="submit"] {
+  background-color: #bd9ceb;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  height: 45px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  width: 100%;
+}
+
+button[type="submit"]:hover {
+  background-color: #a37ee3;
+}
+
+button[type="submit"]:disabled {
+  background-color: #9b77b8;
+  cursor: not-allowed;
+}
+
+.Toastify__toast-container {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+.voltar-button {
+  background-color: #bd9ceb;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  height: 45px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 20px;
+  padding: 0 20px;
+  width: 100%;
+  transition: background-color 0.2s ease-in-out, transform 0.1s ease-in-out;
+}
+
+.voltar-button:hover {
+  background-color: #a37ee3;
+}
+
+.voltar-button:active {
+  transform: scale(0.98);
+}

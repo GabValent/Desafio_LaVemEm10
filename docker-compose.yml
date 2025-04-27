@@ -1,0 +1,51 @@
+version: '3.8'
+
+services:
+  web:
+    build:
+      context: ./backend   # Caminho onde está o Dockerfile do backend
+    volumes:
+      - ./backend:/app
+    ports:
+      - "8000:8000"
+    depends_on:
+      - redis
+    env_file:
+      - .env  # Carrega as variáveis do .env para o serviço
+
+  frontend:
+    build:
+      context: ./frontend  # Caminho onde está o Dockerfile do frontend
+    ports:
+      - "80:80"
+    depends_on:
+      - web
+    env_file:
+      - .env  # Carrega as variáveis do .env para o serviço
+
+  celery:
+    build:
+      context: ./backend   # Caminho onde está o Dockerfile do backend
+    command: celery -A app.celery_worker.celery worker --loglevel=info
+    depends_on:
+      - redis
+    volumes:
+      - ./backend:/app
+    env_file:
+      - .env  # Carrega as variáveis do .env para o serviço
+
+  celery-beat:
+    build:
+      context: ./backend   # Caminho onde está o Dockerfile do backend
+    command: celery -A app.celery_worker.celery beat --loglevel=info
+    depends_on:
+      - redis
+    volumes:
+      - ./backend:/app
+    env_file:
+      - .env  # Carrega as variáveis do .env para o serviço
+
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"

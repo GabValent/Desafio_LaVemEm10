@@ -1,0 +1,181 @@
+/* Estilo geral */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(180deg, #0d0d0d, #371692);
+  font-family: 'Montserrat', sans-serif;
+  padding-top: 100px; /* deixa espaço para os botões no topo */
+  position: relative;
+}
+
+/* Área da logo */
+.logo-area {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+.logo {
+  width: 80px;
+  height: auto;
+}
+
+h1 {
+  color: #ffffff;
+  font-size: 30px;
+  font-weight: bold;
+  margin: 0;
+}
+
+/* Botões do topo */
+.top-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  border-radius: 25px;
+}
+
+.editar-perfil-button,
+.logout-button {
+  background-color: #bd9ceb;
+  color: white;
+  border: none;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 0 20px; 
+  height: 45px;
+  border-radius: 25px;
+  transition: background-color 0.2s ease-in-out, transform 0.1s ease-in-out;
+}
+
+.editar-perfil-button:hover,
+.logout-button:hover {
+  background-color: #a37ee3;
+}
+
+.editar-perfil-button:active,
+.logout-button:active {
+  transform: scale(0.98);
+}
+
+
+.linha-lista {
+  margin-top: 30px;
+  color: white;
+  width: 100%;
+  max-width: 700px;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  backdrop-filter: blur(10px);
+}
+
+.linha-lista h2 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.linha-lista ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.linha-lista p {
+  font-size: 16px;
+  color: #bbb;
+  text-align: center;
+}
+
+/* Itens da lista de linhas */
+.linha-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.05);
+  padding: 15px 20px;
+  margin: 10px 0;
+  border-radius: 12px;
+  color: #ffffff;
+}
+
+/* Área de botões da linha */
+.linha-botoes {
+  display: flex;
+  gap: 8px;
+}
+
+/* Botões dentro da linha */
+.ver-mapa-button,
+.editar-button,
+.excluir-button {
+  border: none;
+  border-radius: 20px;
+  padding: 8px 15px;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out, transform 0.1s ease-in-out;
+}
+
+.ver-mapa-button {
+  background-color: #3498db;
+}
+
+.ver-mapa-button:hover {
+  background-color: #2980b9;
+}
+
+.editar-button {
+  background-color: #4caf50;
+}
+
+.editar-button:hover {
+  background-color: #449d48;
+}
+
+.excluir-button {
+  background-color: #ff4d4d;
+}
+
+.excluir-button:hover {
+  background-color: #e63636;
+}
+
+/* Botão de cadastro de nova linha */
+.cadastro-button {
+  background-color: #bd9ceb;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  height: 45px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 30px;
+  padding: 0 20px;
+  transition: background-color 0.2s ease-in-out, transform 0.1s ease-in-out;
+}
+
+.cadastro-button:hover {
+  background-color: #a37ee3;
+}
+
+.cadastro-button:active {
+  transform: scale(0.98);
+}
+
+/* Toast notifications */
+.Toastify__toast-container {
+  font-family: 'Montserrat', sans-serif;
+}

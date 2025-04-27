@@ -1,0 +1,119 @@
+/* Estilização geral */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: linear-gradient(180deg, #0d0d0d, #371692);
+  font-family: 'Montserrat', sans-serif;
+  padding: 20px;
+}
+
+/* Área do logo */
+.logo-area {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 40px;
+}
+
+.logo {
+  width: 70px;
+  height: auto;
+}
+
+h1 {
+  font-size: 32px;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+/* Estilização do formulário */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 32px 28px;
+  border-radius: 20px;
+  width: 100%;
+  max-width: 380px;
+  background: rgba(255, 255, 255, 0.07);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(10px);
+}
+
+form h2 {
+  color: #ffffff;
+  font-size: 24px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Labels */
+form label {
+  color: #d6d0ec;
+  font-size: 14px;
+  font-weight: 600;
+  margin-left: 5px;
+}
+
+/* Inputs */
+form input {
+  border: none;
+  border-radius: 25px;
+  height: 44px;
+  font-size: 16px;
+  padding: 0 18px;
+  background-color: #ffffff1a;
+  color: #fff;
+  transition: all 0.3s ease;
+}
+
+form input::placeholder {
+  color: #d6d0ec;
+}
+
+form input:focus {
+  outline: 2px solid #c2a9ff;
+  background-color: #ffffff25;
+}
+
+/* Botão principal do form */
+form button {
+  margin-top: 10px;
+  border-radius: 25px;
+  background-color: #c2a9ff;
+  border: none;
+  height: 48px;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+  color: #1e1e2f;
+  transition: background-color 0.3s, transform 0.15s;
+}
+
+form button:hover {
+  background-color: #a37ee3;
+  color: #fff;
+}
+
+form button:active {
+  transform: scale(0.96);
+}
+
+/* Botão de link para cadastro */
+.link-button {
+  background: none;
+  border: none;
+  color: #e0d9f0;
+  margin-top: 20px;
+  font-size: 14px;
+  cursor: pointer;
+  text-decoration: underline;
+  transition: color 0.2s;
+}
+
+.link-button:hover {
+  color: #bd9ceb;
+}
