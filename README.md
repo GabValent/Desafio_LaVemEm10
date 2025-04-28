@@ -100,7 +100,7 @@ Certas páginas, como a de **Minhas Linhas**, **Cadastrar Linha** e **Editar Per
 pela api da Mobilidade Rio, como a api possui uma certa lentidão foi um modo que consegui trazer os pontos sem o usuário esperar por tempos muito longos, no arquivo 
 **backend/app/usuarios.db** já possui todos os pontos cadastrados até o dia 28/04/2025.
 
-2. No arquivo **backend/app/task.py** possui uma tarefa **atualizar_linhas_onibus** que de hora em hora atualiza os onibus do Rio de Janeiro através da Mobilidade Rio
+2. No arquivo **backend/app/task.py** possui uma tarefa **atualizar_linhas_onibus** que diariamente atualiza os onibus do Rio de Janeiro através da Mobilidade Rio
 
 3. Para configurar a frequência das tarefas e quais delas são chamadas, modifique o arquivo **backend/app/celery_worker.py**
 
