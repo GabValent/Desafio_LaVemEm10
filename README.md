@@ -105,3 +105,11 @@ pela api da Mobilidade Rio, como a api possui uma certa lentidão foi um modo qu
 3. Para configurar a frequência das tarefas e quais delas são chamadas, modifique o arquivo **backend/app/celery_worker.py**
 
 
+## Imagens do Projeto
+
+![Tela de Login ](img/login.png)
+![Tela de Cadastro ](img/cadastro.png)
+![Tela de linhas cadastradas ](img/linhasItem.png)
+![Tela de Cadastro de Parada ](img/cadastroParada.png)
+![Tela de Mapa e tabela da parada ](img/Mapa.png)
+![Tela de edição do perfil do usuário ](img/editarPerfil.png)
