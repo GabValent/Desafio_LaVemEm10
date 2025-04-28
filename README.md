@@ -43,16 +43,19 @@ O projeto "Lá Vem em 10" é um sistema de monitoramento de ônibus em tempo rea
    - **Uso**: Utilizada para recuperar informações detalhadas sobre as linhas de ônibus para serem associadas ao sistema.
 
 ## Como Rodar o Projeto
-
-1. Certifique-se de que o Docker e o Docker Compose estão instalados em sua máquina.
-2. Configure no arquivo .envExemple os seguintes parametros:
+1. Fazer o clone do projeto, pode usar o comando
+   ```bash
+      https://github.com/GabValent/Desafio_LaVemEm10.git
+   ```
+2. Certifique-se de que o Docker e o Docker Compose estão instalados em sua máquina.
+3. Configure no arquivo .envExemple os seguintes parametros:
   - DATABASE_URL= url do banco de dados que irá usar  
   - REMETENTE= email que será o remetente do sistema
   - SENHA_EMAIL= senha de app do email que pode ser adquirida atráves de [Fazer login com senhas de app](https://support.google.com/accounts/answer/185833?hl=pt-BR&authuser=3)
   - X_APPLICATION_ID= id de aplicação do TravelTime que pode ser adquirido em [Traveltime](https://account.traveltime.com/)
   - X_API_KEY= chave de api da TravelTime que é adquirida junto com o item anterior
 
-3. Execute o seguinte comando para rodar o ambiente:
+4. Execute o seguinte comando para rodar o ambiente:
    ```bash
    docker-compose up
 
