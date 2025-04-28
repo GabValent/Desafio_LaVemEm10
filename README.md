@@ -1,4 +1,5 @@
 
+
 # Lá Vem em 10 - Sistema de Acompanhamento de Ônibus
 
 ## Descrição
@@ -44,17 +45,16 @@ O projeto "Lá Vem em 10" é um sistema de monitoramento de ônibus em tempo rea
 ## Como Rodar o Projeto
 
 1. Certifique-se de que o Docker e o Docker Compose estão instalados em sua máquina.
-2. Configure no arquivo .envExemplo os seguintes parametros:
-  DATABASE_URL= url do banco de dados que irá usar  
-  REMETENTE= email que será o remetente do sistema
-  SENHA_EMAIL= senha de app do email que pode ser adquirida atráves de [Fazer login com senhas de app](https://support.google.com/accounts/answer/185833?hl=pt-BR&authuser=3)
-  X_APPLICATION_ID= id de aplicação do TravelTime que pode ser adquirido em [Traveltime](https://account.traveltime.com/)
-  X_API_KEY= chave de api da TravelTime que é adquirida junto com o item anterior
+2. Configure no arquivo .envExemple os seguintes parametros:
+  - DATABASE_URL= url do banco de dados que irá usar  
+  - REMETENTE= email que será o remetente do sistema
+  - SENHA_EMAIL= senha de app do email que pode ser adquirida atráves de [Fazer login com senhas de app](https://support.google.com/accounts/answer/185833?hl=pt-BR&authuser=3)
+  - X_APPLICATION_ID= id de aplicação do TravelTime que pode ser adquirido em [Traveltime](https://account.traveltime.com/)
+  - X_API_KEY= chave de api da TravelTime que é adquirida junto com o item anterior
 
 3. Execute o seguinte comando para rodar o ambiente:
    ```bash
    docker-compose up
-  ```
 ### Configuração do Banco de Dados
 O banco de dados é configurado automaticamente com o uso do Docker Compose. Não é necessário configurar manualmente, a não ser que você deseje personalizar as variáveis de ambiente.
 
@@ -94,4 +94,5 @@ pela api da Mobilidade Rio, como a api possui uma certa lentidão foi um modo qu
 2. No arquivo **backend/app/task.py** possui uma tarefa **atualizar_linhas_onibus** que de hora em hora atualiza os onibus do Rio de Janeiro através da Mobilidade Rio
 
 3. Para configurar a frequência das tarefas e quais delas são chamadas, modifique o arquivo **backend/app/celery_worker.py**
+
 
