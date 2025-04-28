@@ -60,7 +60,7 @@ class Parada(Base):
     def get_longitude(self) -> float:
         return self.longitude
 
-    def set_latitude(self, longitude: float):
+    def set_longitude(self, longitude: float):
         self.longitude = longitude
     
 
