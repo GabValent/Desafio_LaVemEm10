@@ -55,6 +55,15 @@ O projeto "Lá Vem em 10" é um sistema de monitoramento de ônibus em tempo rea
 3. Execute o seguinte comando para rodar o ambiente:
    ```bash
    docker-compose up
+
+## Obs:
+  O aplicativo possui poucos testes, mas caso queira roda-los execute o comando:
+   ```bash
+   docker-compose run --rm test
+   ```
+
+
+
 ### Configuração do Banco de Dados
 O banco de dados é configurado automaticamente com o uso do Docker Compose. Não é necessário configurar manualmente, a não ser que você deseje personalizar as variáveis de ambiente.
 
