@@ -2,7 +2,7 @@
   display: flex;
   align-items: center;
   flex-direction: column;
-  padding-top: 150px;
+  padding-top: 50px; /* Diminuímos para ter mais espaço no topo */
   min-height: 100vh;
   background: linear-gradient(180deg, #0d0d0d, #371692);
   font-family: 'Montserrat', sans-serif;
@@ -12,7 +12,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 30px;
+  margin-bottom: 20px; /* Ajuste de margem */
 }
 
 .logo {
@@ -22,7 +22,7 @@
 }
 
 h1 {
-  font-size: 30px;
+  font-size: 28px; /* Tamanho um pouco menor para melhor leitura */
   font-weight: bold;
   color: #fff;
 }
@@ -31,10 +31,10 @@ form {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  padding: 30px;
+  padding: 25px; /* Diminuímos o padding para otimizar o espaço */
   border-radius: 20px;
   width: 100%;
-  max-width: 400px;
+  max-width: 500px; /* Ampliamos o tamanho máximo */
   background-color: rgba(255, 255, 255, 0.05);
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
   backdrop-filter: blur(10px);
@@ -92,23 +92,6 @@ button[type="submit"]:active {
   transform: scale(0.98);
 }
 
-
-.back-to-linhas-button{
-  border: none;
-  background-color: transparent;
-  color: #fff;
-  font-size: 24px;
-  cursor: pointer;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: opacity 0.2s ease-in-out;
-}
-
-
 .voltar-button {
   background-color: #bd9ceb;
   color: white;
@@ -120,7 +103,7 @@ button[type="submit"]:active {
   cursor: pointer;
   margin-top: 20px;
   padding: 0 20px;
-  width: 15%;
+  width: 20%; /* Ajuste de largura para maior consistência */
   transition: background-color 0.2s ease-in-out, transform 0.1s ease-in-out;
 }
 
@@ -130,4 +113,64 @@ button[type="submit"]:active {
 
 .voltar-button:active {
   transform: scale(0.98);
+}
+
+.leaflet-container {
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+}
+
+.form-mapaTelaCadastro {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between; /* Alterado de "center" para "space-between" */
+  flex-direction: row;
+  width: 90%;
+  margin: 30px auto;
+  gap: 30px;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding-top: 30px; /* Ajuste para telas menores */
+  }
+
+  h1 {
+    font-size: 24px; /* Menor tamanho de fonte */
+  }
+
+  form {
+    padding: 20px; /* Reduzido para otimizar o espaço em telas pequenas */
+    width: 90%; /* Ajusta a largura para telas menores */
+  }
+
+  .form-mapaTelaCadastro {
+    flex-direction: column; /* Muda para coluna em telas menores */
+    gap: 20px; /* Ajusta o gap */
+  }
+
+  .voltar-button {
+    width: 100%; /* Faz o botão ocupar toda a largura em telas pequenas */
+    padding: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo {
+    width: 60px; /* Reduz a logo para telas muito pequenas */
+  }
+
+  h1 {
+    font-size: 20px; /* Ajuste do título para telas menores */
+  }
+
+  button[type="submit"] {
+    font-size: 14px; /* Tamanho de fonte menor no botão */
+    height: 40px;
+  }
+
+  .voltar-button {
+    font-size: 14px; /* Ajuste de font-size do botão voltar */
+  }
 }

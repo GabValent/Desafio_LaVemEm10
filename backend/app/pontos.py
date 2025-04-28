@@ -2,8 +2,10 @@ import httpx
 from app.database import SessionLocal
 from app.Repository.pontosRepository import Pontos
 from sqlalchemy.exc import IntegrityError
+from app.Repository.onibusRepository import Onibus
 
 url_pontos = "https://api.mobilidade.rio/gtfs"
+url_onibus = "https://api.mobilidade.rio/gtfs/routes/"
 
 async def buscar_pontos():
     session = SessionLocal()
@@ -12,7 +14,7 @@ async def buscar_pontos():
         total_pages = 1483  # Número total de páginas a serem buscadas
 
         async with httpx.AsyncClient(timeout=300) as client:
-            for page_number in range(791, total_pages):
+            for page_number in range(1, total_pages+1):
                 # Montando a URL da página atual
                 next_url = f"{url_pontos}/stop_times/?page={page_number}"
                 response = await client.get(next_url)

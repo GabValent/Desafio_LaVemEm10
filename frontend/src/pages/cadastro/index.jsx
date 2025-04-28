@@ -52,7 +52,7 @@ function Cadastro() {
 
   return (
     <div className='container'>
-      
+
       <div className="logo-area">
         <img src="/autocarro.png" alt="Logo" className="logo" />
         <h1>Lá Vem em 10</h1>
@@ -60,6 +60,7 @@ function Cadastro() {
 
 
       <form onSubmit={handleSubmit}>
+      <h2 className="titulo-texto">Faça o seu cadastro</h2>
         <h3>Login</h3>
         <input
           name='login'
@@ -88,10 +89,9 @@ function Cadastro() {
       </form>
 
       <div className='titulo-container'>
-          <button type="button" onClick={handleGoToLogin} className="back-to-login-button">
-            Voltar
-          </button>
-          <h2 className="titulo-texto">Faça o seu cadastro</h2>
+        <button type="button" onClick={() => navigate('/')} className="back-to-login-button">
+          Voltar
+        </button>
       </div>
 
 

@@ -1,10 +1,15 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 import './style.css';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
+import { Icon } from 'leaflet';
+import markerIcon from 'leaflet/dist/images/marker-icon.png';
+import markerIcon2x from 'leaflet/dist/images/marker-icon-2x.png';
+import markerShadow from 'leaflet/dist/images/marker-shadow.png';
+import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
 
 function CadastroParada() {
   const [linha, setLinha] = useState('');
@@ -16,6 +21,19 @@ function CadastroParada() {
   const [selectedPonto, setSelectedPonto] = useState(null); // Para armazenar a latitude e longitude do ponto selecionado
   const { usuario } = useAuth();
   const navigate = useNavigate();
+
+  const customIcon = new Icon({
+    iconUrl: markerIcon,
+    iconRetinaUrl: markerIcon2x,
+    shadowUrl: markerShadow,
+    iconSize: [25, 41],
+    iconAnchor: [12, 41],
+  });
+
+  // Coordenadas iniciais do mapa (caso não haja ponto selecionado)
+  const initialCoords = [51.505, -0.09]; // Exemplo de coordenadas iniciais (Londres, por exemplo)
+
+  const mapRef = useRef();
 
   // Carregar as linhas disponíveis ao montar o componente
   useEffect(() => {
@@ -31,9 +49,7 @@ function CadastroParada() {
   // Quando a linha é selecionada, buscar os pontos dessa linha
   useEffect(() => {
     if (linha) {
-      // Adicionar um carregando ou algo similar, se desejar
       toast.info('Buscando pontos da linha...');
-
       axios.get('http://localhost:8000/onibus/busca', { params: { numero_linha: linha } })
         .then(response => {
           setPontosDisponiveis(response.data);
@@ -43,7 +59,7 @@ function CadastroParada() {
           toast.error('Erro ao carregar pontos.');
         });
     }
-  }, [linha]); // Dependência em 'linha' garante que só chamará quando a linha mudar
+  }, [linha]);
 
   // Função para cadastrar uma nova parada
   const handleCadastro = (e) => {
@@ -80,6 +96,14 @@ function CadastroParada() {
     setSelectedPonto(pontoSelecionado);  // objeto com id, nome, lat, lon, etc
   };
 
+  // Atualizar o mapa quando selectedPonto mudar
+  useEffect(() => {
+    if (selectedPonto && mapRef.current) {
+      const map = mapRef.current;
+      map.setView([selectedPonto.lat, selectedPonto.lon], 16);
+    }
+  }, [selectedPonto]);
+
   return (
     <div className="container">
       <div className="logo-area">
@@ -87,6 +111,7 @@ function CadastroParada() {
         <h1>Lá Vem em 10 - Cadastro de Parada</h1>
       </div>
 
+      <div className='form-mapaTelaCadastro'>
       <form onSubmit={handleCadastro}>
         <div className="titulo-container">
           <h2 className="titulo-texto">Cadastro de Parada</h2>
@@ -142,6 +167,24 @@ function CadastroParada() {
         <button type="submit">Cadastrar</button>
       </form>
 
+      <MapContainer
+        ref={mapRef}
+        center={selectedPonto ? [selectedPonto.lat, selectedPonto.lon] : initialCoords}
+        zoom={16}
+        style={{ width: '100%', height: '400px' }}
+      >
+        <TileLayer
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          attribution="&copy; OpenStreetMap contributors"
+        />
+        {selectedPonto && (
+          <Marker position={[selectedPonto.lat, selectedPonto.lon]} icon={customIcon}>
+            <Popup>Parada: {ponto}</Popup>
+          </Marker>
+        )}
+      </MapContainer>
+
+      </div>
 
       <button className="voltar-button" onClick={() => navigate('/linhas')}>
         Voltar

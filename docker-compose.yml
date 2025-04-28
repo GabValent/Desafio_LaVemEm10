@@ -49,3 +49,17 @@ services:
     image: redis:7-alpine
     ports:
       - "6379:6379"
+
+  # Serviço para rodar os testes
+  test:
+    build:
+      context: ./backend   # Caminho onde está o Dockerfile do backend
+    command: pytest --maxfail=6 --disable-warnings -v  # Comando para rodar os testes
+    volumes:
+      - ./backend:/app
+    env_file:
+      - .env  # Carrega as variáveis do .env para o serviço
+    depends_on:
+      - redis
+    links:
+      - redis

@@ -30,14 +30,6 @@ function Linhas() {
       });
   };
 
-  const handleCadastrar = () => {
-    navigate('/cadastrar-linha');
-  };
-
-  const handleEditarPerfil = () => {
-    navigate('/editar-perfil');
-  };
-
   const handleLogout = () => {
     localStorage.removeItem('usuario');
     navigate('/');
@@ -64,7 +56,7 @@ function Linhas() {
       </div>
 
       <div className="top-buttons">
-        <button className="editar-perfil-button" onClick={handleEditarPerfil}>Editar Perfil</button>
+        <button className="editar-perfil-button" onClick={() => navigate('/editar-perfil')}>Editar Perfil</button>
         <button className="logout-button" onClick={handleLogout}>Sair</button>
       </div>
 
@@ -91,7 +83,7 @@ function Linhas() {
         )}
       </div>
 
-      <button className="cadastro-button" onClick={handleCadastrar}>Cadastrar Nova Linha</button>
+      <button className="cadastro-button" onClick={() => navigate('/cadastrar-linha')}>Cadastrar Nova Linha</button>
 
       <ToastContainer />
     </div>

@@ -24,4 +24,4 @@ class Usuario(Base):
         self.email = novo_email
 
     paradas = relationship("Parada", back_populates="usuario")
-    email_registros = relationship("EmailRegistro", back_populates="usuario")
+    email_registros = relationship("EmailRegistro", back_populates="usuario", lazy = 'select')

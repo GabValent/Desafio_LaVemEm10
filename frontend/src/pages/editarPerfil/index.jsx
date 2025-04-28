@@ -93,7 +93,7 @@ function EditarPerfil() {
         </button>
       </form>
 
-      <button className="voltar" onClick={() => navigate('/linhas')}>
+      <button className="voltar-button" onClick={() => navigate('/linhas')}>
         Voltar
       </button>
 

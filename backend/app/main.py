@@ -20,14 +20,14 @@ app = FastAPI()
 
 # Configuração do CORS
 origins = [
-    "http://localhost:3000",  # seu frontend React
-    "*",  # opcionalmente, para testes
+    "http://localhost:3000",
+    "*", 
 ]
 
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=origins,  # ou ["*"] para permitir todos
+    allow_origins=origins,
     allow_credentials=True,
     allow_methods=["*"],  # permite todos os métodos: GET, POST, OPTIONS, etc.
     allow_headers=["*"],  # permite todos os headers
@@ -43,9 +43,11 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 
-'''
 
-# Chamando a função de buscar pontos ao iniciar o aplicativo
+
+#Tirar o comentario quando quiser atualizar os pontos
+
+'''
 @app.on_event("startup")
 async def startup_event():
     logger.info("Iniciando a busca de pontos...")
@@ -55,4 +57,5 @@ async def startup_event():
     except Exception as e:
         logger.error(f"Erro ao buscar pontos: {e}")
 
-        '''
+'''
+

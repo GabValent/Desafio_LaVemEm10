@@ -7,7 +7,7 @@ from app.Repository.usuarioRepository import Usuario
 from app.Repository.onibusRepository import Onibus
 from app.Repository.pontosRepository import Pontos
 from app.celery_worker import celery
-from app.utils.emailUtils import enviar_email
+from app.Services.enviarEmail import enviar_email
 from zoneinfo import ZoneInfo
 from app.Services.filtrarLinha import filtrar_onibus_por_linha
 from app.Services.calcularDistancia import calcularDistancia
@@ -109,8 +109,7 @@ def enviar_emails():
             try:
                 conteudo = f"""
                 <p>Olá,</p>
-                <p>O ônibus da <strong>linha {registro.linha}</strong> deve chegar em breve ao ponto que você cadastrou.</p>
-                <p>Horário de previsão: {registro.horario.strftime('%H:%M:%S')}.</p>
+                <p>O ônibus da <strong>linha {registro.linha}</strong> deve chegar em menos de 10 minutos ao ponto que você cadastrou.</p>
                 <p>Tenha um bom dia!</p>
                 """
                 enviar_email(usuario.email, "Seu ônibus está próximo!", conteudo)
@@ -144,6 +143,10 @@ def atualizar_linhas_onibus():
                     nome = item.get("route_long_name")
                     branding = item.get("route_branding_url")
 
+                    # Verificar se o branding é "BRT", e ignorar esses itens
+                    if branding == "BRT":
+                        continue
+
                     if numero and nome:
                         novo = Onibus(numero_linha=numero, nome_linha=nome)
                         db.add(novo)
@@ -158,57 +161,6 @@ def atualizar_linhas_onibus():
     finally:
         db.close()
 
-
-
-
-@celery.task
-def buscar_pontos():
-    session = SessionLocal()
-    try:
-        next_url = f"{url_pontos}/stop_times/"
-        paradas = []
-        page_number = 1
-
-        while next_url:
-            print(f"Atualizando página {page_number} - URL: {next_url}")
-            response = httpx.get(next_url, timeout=40.0)
-            data = response.json()
-
-            for item in data.get("results", []):
-                stop_info = item.get("stop_id", {})
-                route_info = item.get("trip_id", {}).get("route_id", {})
-
-                if stop_info and route_info:
-                    parada = Pontos(
-                        id=stop_info.get("stop_id"),
-                        nome=stop_info.get("stop_name"),
-                        lat=stop_info.get("stop_lat"),
-                        lon=stop_info.get("stop_lon"),
-                        sequencia=item.get("stop_sequence"),
-                        linha=route_info.get("route_short_name")
-                    )
-                    paradas.append(parada)
-
-            next_url = data.get("next")
-            page_number += 1
-
-        for parada in paradas:
-            try:
-                session.merge(parada)  # Insere ou atualiza
-            except IntegrityError:
-                session.rollback()
-                continue
-
-        session.commit()
-        print(f"Finalizado. Total de paradas processadas: {len(paradas)}")
-
-    except Exception as e:
-        session.rollback()
-        print(f"Erro ao buscar e salvar paradas: {str(e)}")
-        raise
-
-    finally:
-        session.close()
 
 
 

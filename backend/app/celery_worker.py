@@ -18,11 +18,7 @@ celery.conf.beat_schedule = {
     },
     'atualizar_linhas_onibus' :{
         "task": "app.tasks.atualizar_linhas_onibus",
-        "schedule":84600,
-    },
-    'atualizar_ponto': {
-        "task": "app.tasks.buscar_pontos",
-        "schedule":84600,
+        "schedule":86400,
     }
 }
 

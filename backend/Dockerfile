@@ -5,6 +5,9 @@ WORKDIR /app
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
+# Instalar dependências de testes
+RUN pip install --no-cache-dir pytest pytest-mock
+
 COPY . .
 
 ENV PYTHONPATH=/app
